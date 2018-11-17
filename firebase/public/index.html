@@ -36,6 +36,7 @@
 		<label>Photo:</label> <input type="file" name="filename" required />
 		<button type="button" onclick="uploadPhoto()">Upload</button>
 	</form>
+	<p id="age"></p>
 	<label>Style:</label><select id="style" onchange="selectStyle()">
 		<option value="Business">Business</option>
 		<option value="Casual">Casual</option>
@@ -44,11 +45,6 @@
 		<option value="Sexy">Sexy</option>
 		<option value="Outdoor">Sport</option>
 	</select>
-	<hr>
-	<!--
-	<input type="file" name="img" multiple onchange="upload(this.files)">
-	<hr>
-	-->
 	<hr>
 	
 	<button onclick="grabImg()">

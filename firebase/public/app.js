@@ -123,6 +123,7 @@ function uploadPhoto() {
 
 function doSomethingWith(data) {
   // do something with your data here
+  $("#age").html("Age: "+data.faces['0']['age']);
   console.log(data)
 }
 
