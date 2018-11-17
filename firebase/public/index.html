@@ -36,24 +36,27 @@
 		<label>Photo:</label> <input type="file" name="filename" required />
 		<button type="button" onclick="uploadPhoto()">Upload</button>
 	</form>
-	<select id="style" onchange="selectStyle()">
-		<option value="business">Business</option>
-		<option value="casual">Casual</option>
-		<option value="elegant">Elegant</option>
-		<option value="rocker">Rocker</option>
-		<option value="sexy">Sexy</option>
-		<option value="sport">Sport</option>
+	<label>Style:</label><select id="style" onchange="selectStyle()">
+		<option value="Business">Business</option>
+		<option value="Casual">Casual</option>
+		<option value="Elegant">Elegant</option>
+		<option value="Rocker">Rocker</option>
+		<option value="Sexy">Sexy</option>
+		<option value="Outdoor">Sport</option>
 	</select>
 	<hr>
+	<!--
 	<input type="file" name="img" multiple onchange="upload(this.files)">
 	<hr>
+	-->
 	<hr>
 	
 	<button onclick="grabImg()">
 		show Img
 	</button>	
+	<p id="imgholder">
+	</p>
 	<img id="my_image" src=""/>
-	
 	<button onclick="googleLogout()">
 		Log out
 	</button>

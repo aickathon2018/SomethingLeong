@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", event =>{
 	
 	
 	
+	
 var docRef = db.collection("users").doc("5hXIFzjhXy42bR3iAsKh");
 
 docRef.get().then(function(doc) {
@@ -28,6 +29,12 @@ docRef.get().then(function(doc) {
     console.log("Error getting document:", error);
 });
 
+
+
+
+  // Get a reference to the database service
+
+	
 
 });
 
@@ -67,25 +74,6 @@ function updatePost(e){
 		});
 }
 
-/*
-function updatePost(e){
-	const db = firebase.firestore();
-	const myPost = db.doc('posts/fourth');
-	
-	myPost.set({
-			title: 'bar3'
-		}).then(res=>{
-			console.log('Document written at'+res.updateTime);
-		});
-}
-*/
-/*
-function updatePost(e){
-	const db = firebase.firestore();
-	const myPost = db.collection('posts').doc('firstpost');
-	myPost.update({title: e.target.value})
-}
-*/
 
 
 function upload(files){
@@ -102,20 +90,6 @@ function upload(files){
 		})
 	}
 }
-/*
-function upload(files){
-	const storageRef=firebase.storage().ref();
-	const fashionRef = storageRef.child('fashion2.jpg');
-	const file = files.item(0);
-	const task = fashionRef.put(file)
-	task.then(snapshot=>{
-		console.log(snapshot)
-		const url = snapshot.downloadURL
-		document.querySelector('#imgUpload').setAttribute('src',url)
-	})
-}
-*/
-
 function uploadfiles(files){
 	files.forEach(addStorage);
 }
@@ -154,9 +128,28 @@ function doSomethingWith(data) {
 
 function selectStyle(){
 	var e = document.getElementById("style");
-	choosedStyle = e.selectedIndex;	
-	//choosedStyle = e.options[e.selectedIndex].value;
+	$("#imgholder").html("");
+	//choosedStyle = e.selectedIndex;	
+	choosedStyle = e.options[e.selectedIndex].value;
 	console.log(choosedStyle)
+	
+	var storageRef = firebase.storage().ref();
+	var database = firebase.database();
+	var clothRef = database.ref('users/-LRXrmgXvbA-FdTZglQw/');
+	clothRef.orderByChild("Style").equalTo(choosedStyle).on("child_added", function(data) {
+   console.log(data.val().URL);
+   
+		
+	var spaceRef = storageRef.child(data.val().URL);
+	spaceRef.getDownloadURL().then(function(url) {
+		$("#imgholder").append("<img src=\""+url+"\">");
+		
+		console.log(url);
+		});
+	
+	});
+	
+	
 }
 
 function grabImg(){
