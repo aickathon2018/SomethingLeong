@@ -4,8 +4,8 @@
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to SomethingLeong</title>
-
+   <title>Fashion Website</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.5.8/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -19,10 +19,28 @@
 
   </head>
   <body>
+  <header>
+		
+		<div class="row">
+			<div class="logo">
+			<img src="lo.png">
+			</div>
+		<ul class="main-nav">
+			<li class="active"><a href="">HOME</a></li>
+			<li class="active"><a href="">SHOP</a></li>
+			<li class="active"><a href="">CONTACT</a></li>
+			<li class="active"><a href="">ABOUT</a></li>
+		
+		</div>
+		
+	</header>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<div id="loginpage">
-	<h1> Welcome to SomethingLeong </h1>
-	<input onchange="updatePost(event)"> 
+	
+		<div class="ready">
+		<h1 style="font-size: 60px;">Get Started by Google Login</h1>
+			
+		</div>
 	<hr>
 	<img id="imgUpload" src="" >
 		<button onclick="googleLogin()">
@@ -47,9 +65,6 @@
 	</select>
 	<hr>
 	
-	<button onclick="grabImg()">
-		show Img
-	</button>	
 	<p id="imgholder">
 	</p>
 	<img id="my_image" src=""/>
